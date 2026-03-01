@@ -22,8 +22,8 @@ endif
 test: $(TEST_BIN)
 	./$(TEST_BIN)
 
-$(TEST_BIN): $(TEST_SRC) tests/framework.h
-	$(CC) $(CFLAGS) -o $@ $(TEST_SRC)
+$(TEST_BIN): $(TEST_SRC) tests/framework.h tests/test_lut.c inc/lut.h src/lut.c
+	$(CC) $(CFLAGS) -Iinc -o $@ $(TEST_SRC)
 
 clean:
 	rm -f $(TEST_BIN)

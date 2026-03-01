@@ -15,8 +15,12 @@ static void suite_tdd00(void) {
     assert_equal(10 - 3, 7);
 }
 
+/* US01 — LUT seno, cosseno e raiz */
+#include "test_lut.c"
+
 int main(void) {
     suite_tdd00();
+    suite_lut();
 
     TESTS_SUMMARY();
     return 0;
