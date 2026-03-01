@@ -45,6 +45,9 @@ static void suite_tdd00(void) {
 /* US10 — Dash duplo toque */
 #include "test_dash.c"
 
+/* US12 — Ataque básico melee */
+#include "test_attack.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -57,6 +60,7 @@ int main(void) {
     suite_jump();
     suite_crouch();
     suite_dash();
+    suite_attack();
 
     TESTS_SUMMARY();
     return 0;
