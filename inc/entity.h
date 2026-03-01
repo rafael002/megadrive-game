@@ -28,6 +28,7 @@ typedef enum {
 #define FLAG_ATTACKING        ((u16)(1 << 5))  /* hitbox de ataque ativa     */
 #define FLAG_AIMING           ((u16)(1 << 6))  /* modo mira do arco          */
 #define FLAG_DASHING          ((u16)(1 << 7))  /* em dash                    */
+#define FLAG_DASH_DIR         ((u16)(1 << 8))  /* dir do 1º toque: 1=direita */
 
 /* ── Struct principal ────────────────────────────────────────────────────── */
 typedef struct {

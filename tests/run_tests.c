@@ -42,6 +42,9 @@ static void suite_tdd00(void) {
 /* US09 — Agachar */
 #include "test_crouch.c"
 
+/* US10 — Dash duplo toque */
+#include "test_dash.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -53,6 +56,7 @@ int main(void) {
     suite_aabb();
     suite_jump();
     suite_crouch();
+    suite_dash();
 
     TESTS_SUMMARY();
     return 0;
