@@ -69,6 +69,9 @@ static void suite_tdd00(void) {
 /* US19 — Cenário (tilemap, plano sólido) */
 #include "test_scene.c"
 
+/* US20 — HUD (vida e munição) */
+#include "test_hud.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -89,6 +92,7 @@ int main(void) {
     suite_aim_hold();
     suite_patrol();
     suite_scene();
+    suite_hud();
 
     TESTS_SUMMARY();
     return 0;

@@ -35,13 +35,14 @@ $(TEST_BIN): $(TEST_SRC) tests/framework.h tests/test_lut.c tests/test_fix.c \
              tests/test_crouch.c tests/test_dash.c tests/test_attack.c \
              tests/test_combo.c tests/test_aerial.c tests/test_aim.c \
              tests/test_arrow.c tests/test_aim_hold.c tests/test_patrol.c \
-             tests/test_scene.c \
+             tests/test_scene.c tests/test_hud.c \
              inc/lut.h inc/fix.h inc/entity.h inc/collision.h inc/pool.h \
              inc/physics.h inc/config.h inc/dash.h inc/attack.h inc/combo.h \
              inc/aerial.h inc/aim.h inc/arrow.h inc/patrol.h inc/scene.h \
+             inc/hud.h \
              src/lut.c src/collision.c src/pool.c src/physics.c src/jump.c \
              src/crouch.c src/dash.c src/attack.c src/combo.c src/aerial.c \
-             src/aim.c src/arrow.c src/patrol.c src/scene.c
+             src/aim.c src/arrow.c src/patrol.c src/scene.c src/hud.c
 	$(CC) $(CFLAGS) -Iinc -o $@ $(TEST_SRC)
 
 rom:
