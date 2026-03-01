@@ -39,12 +39,43 @@ Não requer SGDK instalado. Os testes rodam no host com zero dependências exter
 
 ---
 
-## Build para Mega Drive
+## Build da ROM para Mega Drive
+
+### Via Docker (recomendado — sem instalação local)
 
 ```bash
-# Requer GDK apontando para o SGDK
-make             # gera out/rom.bin
+make rom         # usa ghcr.io/stephane-d/sgdk:latest
 ```
+
+Requer apenas Docker instalado. Gera `out/rom.bin` que pode ser carregado em qualquer emulador (Blastem, Gens, RetroArch).
+
+Imagem customizável:
+
+```bash
+SGDK_DOCKER=ghcr.io/stephane-d/sgdk:v2.00 make rom
+```
+
+### Via SGDK local
+
+```bash
+export GDK=/path/to/sgdk   # aponta para o diretório do SGDK
+make                        # gera out/rom.bin
+```
+
+### Limpar artefatos
+
+```bash
+make clean        # remove binário de testes
+make clean-rom    # remove out/ (artefatos da ROM)
+```
+
+### Emuladores recomendados
+
+| Emulador | Plataforma | Observação |
+|---|---|---|
+| [Blastem](https://www.retrodev.com/blastem/) | Linux/macOS/Win | Precisão alta, debug integrado |
+| [Gens/GS](http://segaretro.org/Gens/GS) | Linux/Win | Clássico, fácil de usar |
+| [RetroArch](https://www.retroarch.com/) (Genesis Plus GX) | Multi | Accuracy + shader support |
 
 ---
 
@@ -61,14 +92,15 @@ make             # gera out/rom.bin
 | US04 | Collision grid tile 16×16: `tile_is_solid`, `collision_point`, shifts `>>4`/`<<4` |
 | US05 | Entity pool estático sem malloc — free-list stack O(1) |
 
-### Sprint 1 — Física e movimentação 🔄
+### Sprint 1 — Física e movimentação ✅
 | US | Entregável |
 |---|---|
 | US06 | Física: gravidade, aceleração horizontal e atrito em `fix32` ✅ |
 | US07 | Resposta AABB X/Y com deslize em paredes ✅ |
-| US08 | Pulo e duplo pulo 🔄 |
-| US09 | Agachar (hitbox reduzida, bloqueio em teto baixo) |
-| US10 | Dash (duplo toque < 300 ms) |
+| US08 | Pulo e duplo pulo ✅ |
+| US09 | Agachar (hitbox reduzida, bloqueio em teto baixo) ✅ |
+| US10 | Dash (duplo toque < 300 ms) ✅ |
+| US11 | Build da ROM via Docker + local SGDK ✅ |
 
 ### Sprint 2 — Combate melee
 US12 ataque básico · US13 combo ground (3 hits) · US14 combo aerial
