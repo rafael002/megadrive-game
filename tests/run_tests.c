@@ -48,6 +48,9 @@ static void suite_tdd00(void) {
 /* US12 — Ataque básico melee */
 #include "test_attack.c"
 
+/* US13 — Combo ground (3 hits) */
+#include "test_combo.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -61,6 +64,7 @@ int main(void) {
     suite_crouch();
     suite_dash();
     suite_attack();
+    suite_combo();
 
     TESTS_SUMMARY();
     return 0;
