@@ -36,6 +36,9 @@ static void suite_tdd00(void) {
 /* US07 — Colisão AABB X/Y e deslize */
 #include "test_aabb.c"
 
+/* US08 — Pulo e duplo pulo */
+#include "test_jump.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -45,6 +48,7 @@ int main(void) {
     suite_pool();
     suite_physics();
     suite_aabb();
+    suite_jump();
 
     TESTS_SUMMARY();
     return 0;
