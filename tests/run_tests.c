@@ -54,6 +54,9 @@ static void suite_tdd00(void) {
 /* US14 — Combo aerial */
 #include "test_aerial.c"
 
+/* US15 — Modo mira (ângulo 0°–180°) */
+#include "test_aim.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -69,6 +72,7 @@ int main(void) {
     suite_attack();
     suite_combo();
     suite_aerial();
+    suite_aim();
 
     TESTS_SUMMARY();
     return 0;
