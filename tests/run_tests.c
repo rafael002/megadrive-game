@@ -39,6 +39,9 @@ static void suite_tdd00(void) {
 /* US08 — Pulo e duplo pulo */
 #include "test_jump.c"
 
+/* US09 — Agachar */
+#include "test_crouch.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -49,6 +52,7 @@ int main(void) {
     suite_physics();
     suite_aabb();
     suite_jump();
+    suite_crouch();
 
     TESTS_SUMMARY();
     return 0;
