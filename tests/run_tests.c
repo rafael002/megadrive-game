@@ -30,6 +30,9 @@ static void suite_tdd00(void) {
 /* US05 — Entity Pool sem malloc */
 #include "test_pool.c"
 
+/* US06 — Física do jogador */
+#include "test_physics.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -37,6 +40,7 @@ int main(void) {
     suite_entity();
     suite_collision();
     suite_pool();
+    suite_physics();
 
     TESTS_SUMMARY();
     return 0;
