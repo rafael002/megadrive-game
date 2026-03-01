@@ -24,11 +24,15 @@ static void suite_tdd00(void) {
 /* US03 — Entity Struct compacta */
 #include "test_entity.c"
 
+/* US04 — Collision Grid tile 16x16 */
+#include "test_collision.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
     suite_fix();
     suite_entity();
+    suite_collision();
 
     TESTS_SUMMARY();
     return 0;
