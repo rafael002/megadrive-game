@@ -20,9 +20,10 @@
 #include "lut.h"
 
 /* ── Constantes ──────────────────────────────────────────────────────────── */
-#define AIM_ANGLE_MIN   0    /* ângulo mínimo: direita (0°)     */
-#define AIM_ANGLE_MAX   128  /* ângulo máximo: esquerda (180°)  */
-#define AIM_ANGLE_STEP  4    /* incremento por input (32 posições distintas) */
+#define AIM_ANGLE_MIN         0   /* ângulo mínimo: direita (0°)              */
+#define AIM_ANGLE_MAX       128   /* ângulo máximo: esquerda (180°)           */
+#define AIM_ANGLE_STEP        4   /* incremento por press (32 posições)       */
+#define AIM_HOLD_RATE_FRAMES  6   /* frames entre incrementos na mira segurada */
 
 /* ── Macros de vetor (prontos para US16 — disparo) ──────────────────────── */
 #define aim_vx(e)  lut_cos((e)->angle)
@@ -41,3 +42,11 @@ void aim_end(Entity *e);
  * Clampado em [AIM_ANGLE_MIN, AIM_ANGLE_MAX].
  */
 void aim_adjust(Entity *e, s8 dir);
+
+/*
+ * aim_hold_tick — chamar a cada frame enquanto o botão de mira estiver segurado.
+ * Aplica aim_adjust a cada AIM_HOLD_RATE_FRAMES frames (rate limiting via Entity.timer).
+ * Na primeira chamada (timer==0) ajusta imediatamente e reinicia o contador.
+ * Requer FLAG_AIMING ativo (aim_start chamado antes).
+ */
+void aim_hold_tick(Entity *e, s8 dir);

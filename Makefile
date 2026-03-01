@@ -34,7 +34,7 @@ $(TEST_BIN): $(TEST_SRC) tests/framework.h tests/test_lut.c tests/test_fix.c \
              tests/test_physics.c tests/test_aabb.c tests/test_jump.c \
              tests/test_crouch.c tests/test_dash.c tests/test_attack.c \
              tests/test_combo.c tests/test_aerial.c tests/test_aim.c \
-             tests/test_arrow.c \
+             tests/test_arrow.c tests/test_aim_hold.c \
              inc/lut.h inc/fix.h inc/entity.h inc/collision.h inc/pool.h \
              inc/physics.h inc/config.h inc/dash.h inc/attack.h inc/combo.h \
              inc/aerial.h inc/aim.h inc/arrow.h \

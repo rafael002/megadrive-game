@@ -18,3 +18,12 @@ void aim_adjust(Entity *e, s8 dir) {
     if (a > AIM_ANGLE_MAX) a = AIM_ANGLE_MAX;
     e->angle = (u8)a;
 }
+
+void aim_hold_tick(Entity *e, s8 dir) {
+    if (e->timer == 0) {
+        aim_adjust(e, dir);
+        e->timer = AIM_HOLD_RATE_FRAMES;
+    } else {
+        e->timer--;
+    }
+}
