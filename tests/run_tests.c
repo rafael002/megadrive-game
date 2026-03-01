@@ -63,6 +63,9 @@ static void suite_tdd00(void) {
 /* US17 — Ajuste de ângulo (mira segurada) */
 #include "test_aim_hold.c"
 
+/* US18 — IA patrulha (ping-pong) */
+#include "test_patrol.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -81,6 +84,7 @@ int main(void) {
     suite_aim();
     suite_arrow();
     suite_aim_hold();
+    suite_patrol();
 
     TESTS_SUMMARY();
     return 0;
