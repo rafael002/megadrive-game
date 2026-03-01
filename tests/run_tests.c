@@ -18,9 +18,13 @@ static void suite_tdd00(void) {
 /* US01 — LUT seno, cosseno e raiz */
 #include "test_lut.c"
 
+/* US02 — Fixed Point fix32 */
+#include "test_fix.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
+    suite_fix();
 
     TESTS_SUMMARY();
     return 0;

@@ -7,17 +7,7 @@
  */
 #pragma once
 
-#ifdef __m68k__
-    #include <genesis.h>
-#else
-    #include <stdint.h>
-    typedef int32_t  fix32;
-    typedef uint8_t  u8;
-    typedef uint16_t u16;
-    typedef uint32_t u32;
-    typedef int16_t  s16;
-    typedef int32_t  s32;
-#endif
+#include "fix.h"
 
 extern const fix32 sin_lut[256];
 extern const fix32 cos_lut[256];

@@ -5,8 +5,6 @@
 #include "../inc/lut.h"
 #include "../src/lut.c"   /* inclui a implementação diretamente no host build */
 
-#define FIX32_ONE 65536
-
 void suite_lut(void) {
     TEST("US01 sin_lut — valores cardinais");
     assert_equal(sin_lut[0],   0);           /* sin   0° = 0    */
