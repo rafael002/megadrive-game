@@ -21,10 +21,14 @@ static void suite_tdd00(void) {
 /* US02 — Fixed Point fix32 */
 #include "test_fix.c"
 
+/* US03 — Entity Struct compacta */
+#include "test_entity.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
     suite_fix();
+    suite_entity();
 
     TESTS_SUMMARY();
     return 0;

@@ -23,7 +23,7 @@ test: $(TEST_BIN)
 	./$(TEST_BIN)
 
 $(TEST_BIN): $(TEST_SRC) tests/framework.h tests/test_lut.c tests/test_fix.c \
-             inc/lut.h inc/fix.h src/lut.c
+             tests/test_entity.c inc/lut.h inc/fix.h inc/entity.h src/lut.c
 	$(CC) $(CFLAGS) -Iinc -o $@ $(TEST_SRC)
 
 clean:
