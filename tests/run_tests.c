@@ -33,6 +33,9 @@ static void suite_tdd00(void) {
 /* US06 — Física do jogador */
 #include "test_physics.c"
 
+/* US07 — Colisão AABB X/Y e deslize */
+#include "test_aabb.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -41,6 +44,7 @@ int main(void) {
     suite_collision();
     suite_pool();
     suite_physics();
+    suite_aabb();
 
     TESTS_SUMMARY();
     return 0;

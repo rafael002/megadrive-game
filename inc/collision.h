@@ -39,3 +39,21 @@ u8 tile_is_solid(s16 tx, s16 ty);
  * sobre um tile sólido.
  */
 u8 collision_point(fix32 wx, fix32 wy);
+
+/* ── Resposta AABB ───────────────────────────────────────────────────────── */
+#include "entity.h"
+
+/*
+ * collision_move_x — aplica vx à posição x e resolve colisão AABB no eixo X.
+ * Se colidir com parede: snapa x encostado no tile e zera vx.
+ * Deslize vertical fica garantido pela separação X/Y.
+ */
+void collision_move_x(Entity *e);
+
+/*
+ * collision_move_y — aplica vy à posição y e resolve colisão AABB no eixo Y.
+ * Limpa FLAG_ON_GROUND antes de mover.
+ * Colisão com chão: snapa y, zera vy, seta FLAG_ON_GROUND.
+ * Colisão com teto: snapa y, zera vy.
+ */
+void collision_move_y(Entity *e);
