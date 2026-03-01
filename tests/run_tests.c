@@ -51,6 +51,9 @@ static void suite_tdd00(void) {
 /* US13 — Combo ground (3 hits) */
 #include "test_combo.c"
 
+/* US14 — Combo aerial */
+#include "test_aerial.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -65,6 +68,7 @@ int main(void) {
     suite_dash();
     suite_attack();
     suite_combo();
+    suite_aerial();
 
     TESTS_SUMMARY();
     return 0;
