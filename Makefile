@@ -23,9 +23,9 @@ test: $(TEST_BIN)
 	./$(TEST_BIN)
 
 $(TEST_BIN): $(TEST_SRC) tests/framework.h tests/test_lut.c tests/test_fix.c \
-             tests/test_entity.c tests/test_collision.c \
-             inc/lut.h inc/fix.h inc/entity.h inc/collision.h inc/config.h \
-             src/lut.c src/collision.c
+             tests/test_entity.c tests/test_collision.c tests/test_pool.c \
+             inc/lut.h inc/fix.h inc/entity.h inc/collision.h inc/pool.h inc/config.h \
+             src/lut.c src/collision.c src/pool.c
 	$(CC) $(CFLAGS) -Iinc -o $@ $(TEST_SRC)
 
 clean:

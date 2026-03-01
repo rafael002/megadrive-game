@@ -27,12 +27,16 @@ static void suite_tdd00(void) {
 /* US04 — Collision Grid tile 16x16 */
 #include "test_collision.c"
 
+/* US05 — Entity Pool sem malloc */
+#include "test_pool.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
     suite_fix();
     suite_entity();
     suite_collision();
+    suite_pool();
 
     TESTS_SUMMARY();
     return 0;
