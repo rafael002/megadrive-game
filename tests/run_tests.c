@@ -57,6 +57,9 @@ static void suite_tdd00(void) {
 /* US15 — Modo mira (ângulo 0°–180°) */
 #include "test_aim.c"
 
+/* US16 — Disparo (projétil via Pool) */
+#include "test_arrow.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -73,6 +76,7 @@ int main(void) {
     suite_combo();
     suite_aerial();
     suite_aim();
+    suite_arrow();
 
     TESTS_SUMMARY();
     return 0;
