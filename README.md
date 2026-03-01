@@ -102,14 +102,26 @@ make clean-rom    # remove out/ (artefatos da ROM)
 | US10 | Dash (duplo toque < 300 ms) ✅ |
 | US11 | Build da ROM via Docker + local SGDK ✅ |
 
-### Sprint 2 — Combate melee
-US12 ataque básico · US13 combo ground (3 hits) · US14 combo aerial
+### Sprint 2 — Combate melee ✅
+| US | Entregável |
+|---|---|
+| US12 | Ataque melee: hitbox ativa em janela de frames (6/18), `attack_check_hit` AABB + dano ✅ |
+| US13 | Combo ground 3 hits: máquina de estados, janela de timing entre hits ✅ |
+| US14 | Combo aerial: `aerial_attack_start` bloqueado no chão, inércia `vx` preservada ✅ |
 
-### Sprint 3 — Arco e flecha
-US15 modo mira · US16 disparo via pool · US17 ajuste de ângulo
+### Sprint 3 — Arco e flecha ✅
+| US | Entregável |
+|---|---|
+| US15 | Modo mira: `FLAG_AIMING`, ângulo u8 [0°–180°], trava `vx`, `aim_vx/vy` via LUT ✅ |
+| US16 | Disparo: `arrow_fire` aloca pool, `vx/vy = cos/sin(angle) × ARROW_SPEED` ✅ |
+| US17 | Mira segurada: `aim_hold_tick` com rate limiting via `Entity.timer` ✅ |
 
-### Sprint 4 — Inimigos e cenário
-US18 IA patrulha · US19 tilemap · US20 HUD
+### Sprint 4 — Inimigos e cenário ✅
+| US | Entregável |
+|---|---|
+| US18 | IA patrulha ping-pong: `patrol_tick` inverte em `collision_move_x` ✅ |
+| US19 | Cenário tilemap: `scene_load` + `g_scene_default` (chão y=13, plataforma y=9) ✅ |
+| US20 | HUD: `HUD` struct, `hud_set_hp/ammo` com clamp, `hud_draw` (SGDK Window Layer) ✅ |
 
 ---
 
@@ -123,6 +135,10 @@ US18 IA patrulha · US19 tilemap · US20 HUD
 | Entity struct | Campos `fix32` primeiro → alinhamento natural no 68000 com `__attribute__((packed))` |
 | Collision AABB | Resolução X antes de Y → deslize natural em paredes |
 | Sem malloc | Tudo em arrays estáticos; `MAX_*` definidos em `config.h` |
+| Combo vs ataque isolado | `combo.h` encapsula sequência; `attack.h` trata hitbox/dano — reutilizados por aerial/combo sem duplicação |
+| Mira contínua | `aim_hold_tick` rate limiting via `Entity.timer`: ~10 ajustes/s sem campo extra |
+| IA patrulha | `patrol_tick` detecta parede via `vx==0` pós `collision_move_x` — zero estado extra |
+| HUD rendering | `#ifdef SGDK` isola VDP do host; `hud_draw` no-op no host, `VDP_drawText` no target |
 
 ---
 
