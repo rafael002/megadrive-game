@@ -66,6 +66,9 @@ static void suite_tdd00(void) {
 /* US18 — IA patrulha (ping-pong) */
 #include "test_patrol.c"
 
+/* US19 — Cenário (tilemap, plano sólido) */
+#include "test_scene.c"
+
 int main(void) {
     suite_tdd00();
     suite_lut();
@@ -85,6 +88,7 @@ int main(void) {
     suite_arrow();
     suite_aim_hold();
     suite_patrol();
+    suite_scene();
 
     TESTS_SUMMARY();
     return 0;
