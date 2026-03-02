@@ -103,15 +103,15 @@ static void player_update(void) {
     g_joy_cur  = JOY_readJoypad(JOY_1);
 
     /* ── Modo mira (C segurado) ── */
-    if (g_joy_cur & JOYPAD_BTN_C) {
+    if (g_joy_cur & BUTTON_C) {
         if (!entity_has_flag(p, FLAG_AIMING)) aim_start(p);
 
         /* Ajuste de ângulo com d-pad */
-        if (g_joy_cur & JOYPAD_BTN_LEFT)  aim_hold_tick(p, -1);
-        if (g_joy_cur & JOYPAD_BTN_RIGHT) aim_hold_tick(p,  1);
+        if (g_joy_cur & BUTTON_LEFT)  aim_hold_tick(p, -1);
+        if (g_joy_cur & BUTTON_RIGHT) aim_hold_tick(p,  1);
 
         /* A = disparo (press) */
-        if (btn_pressed(JOYPAD_BTN_A) && g_hud.ammo > 0) {
+        if (btn_pressed(BUTTON_A) && g_hud.ammo > 0) {
             arrow_fire(p);
             hud_set_ammo((u8)(g_hud.ammo - 1));
         }
@@ -122,26 +122,26 @@ static void player_update(void) {
 
         /* Movimento horizontal */
         if (!entity_has_flag(p, FLAG_DASHING)) {
-            if (g_joy_cur & JOYPAD_BTN_LEFT) {
+            if (g_joy_cur & BUTTON_LEFT) {
                 physics_accel_x(p, -1);
-                if (btn_pressed(JOYPAD_BTN_LEFT)) dash_input(p, -1);
-            } else if (g_joy_cur & JOYPAD_BTN_RIGHT) {
+                if (btn_pressed(BUTTON_LEFT)) dash_input(p, -1);
+            } else if (g_joy_cur & BUTTON_RIGHT) {
                 physics_accel_x(p, 1);
-                if (btn_pressed(JOYPAD_BTN_RIGHT)) dash_input(p, 1);
+                if (btn_pressed(BUTTON_RIGHT)) dash_input(p, 1);
             } else if (!aerial_should_preserve_vx(p)) {
                 physics_friction(p);
             }
         }
 
         /* Agachar */
-        if (g_joy_cur & JOYPAD_BTN_DOWN) crouch_start(p);
-        else                              crouch_end(p);
+        if (g_joy_cur & BUTTON_DOWN) crouch_start(p);
+        else                         crouch_end(p);
 
         /* Pulo (A) */
-        if (btn_pressed(JOYPAD_BTN_A)) jump_start(p);
+        if (btn_pressed(BUTTON_A)) jump_start(p);
 
         /* Ataque (B): combo no chão, aéreo no ar */
-        if (btn_pressed(JOYPAD_BTN_B)) {
+        if (btn_pressed(BUTTON_B)) {
             if (entity_has_flag(p, FLAG_ON_GROUND))
                 combo_input(p);
             else

@@ -13,6 +13,25 @@
 
 #ifdef __m68k__
     #include <genesis.h>
+    /*
+     * SGDK >= 1.90 deprecou os macros fix32* via _Pragma("GCC error").
+     * Fazemos undef + redefine antes que qualquer .c os use.
+     */
+    #undef  fix32Add
+    #define fix32Add(a, b)   ((fix32)((a) + (b)))
+    #undef  fix32Sub
+    #define fix32Sub(a, b)   ((fix32)((a) - (b)))
+    #undef  fix32Mul
+    #define fix32Mul(a, b)   F32_mul((a), (b))
+    #undef  fix32Neg
+    #define fix32Neg(v)      ((fix32)(0 - (v)))
+    #undef  fix32ToInt
+    #define fix32ToInt(v)    F32_toInt(v)
+    /* intToFix32: sem função F32_fromInt no SGDK → shift direto */
+    #undef  intToFix32
+    #define intToFix32(v)    ((fix32)((s32)(v) << 16))
+    #undef  fix32Abs
+    #define fix32Abs(v)      F32_abs(v)
 
 #else
     /* ── Tipos SGDK para o host ─────────────────────────────────────────── */

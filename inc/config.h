@@ -11,7 +11,9 @@
 #define SCREEN_H        224     /* pixels */
 
 /* ── Tile / colisão ──────────────────────────────────────────────────────── */
+#ifndef TILE_SIZE
 #define TILE_SIZE       16      /* pixels por tile */
+#endif
 #define MAP_W_TILES     20      /* tiles por linha (320 / 16) */
 #define MAP_H_TILES     14      /* tiles por coluna (224 / 16) */
 

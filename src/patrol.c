@@ -15,9 +15,10 @@ void patrol_start(Entity *e, s8 dir) {
 
 void patrol_tick(Entity *e) {
     /* Define vx conforme direção atual */
-    e->vx = entity_has_flag(e, FLAG_FACING_RIGHT)
-            ? PATROL_VX
-            : fix32Neg(PATROL_VX);
+    if (entity_has_flag(e, FLAG_FACING_RIGHT))
+        e->vx =  PATROL_VX;
+    else
+        e->vx = (0 - PATROL_VX);
 
     /* Move e resolve colisão; vx zerado em caso de colisão */
     collision_move_x(e);
