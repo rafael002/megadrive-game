@@ -116,6 +116,11 @@ make clean-rom    # remove out/ (artefatos da ROM)
 | US16 | Disparo: `arrow_fire` aloca pool, `vx/vy = cos/sin(angle) × ARROW_SPEED` ✅ |
 | US17 | Mira segurada: `aim_hold_tick` com rate limiting via `Entity.timer` ✅ |
 
+### Sprint 5 — Integração ✅
+| US | Entregável |
+|---|---|
+| US21 | `main.c` integrado: jogador + inimigo + HUD no game loop SGDK ✅ |
+
 ### Sprint 4 — Inimigos e cenário ✅
 | US | Entregável |
 |---|---|
